@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactList =  () => {
     return (
-        <h1>Contact List</h1>
+        <div className="ui celled list">Contact List</div>
     )
 }
 
