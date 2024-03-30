@@ -3,17 +3,20 @@ import React from "react";
 export default function AddContact(props) {
 
     const [state, setState] = React.useState({name: '', email: ''})
+    const [isFieldsEmpty, setIsFieldsEmpty] = React.useState(false);
 
     function submitHandler(e) {
         e.preventDefault();
 
         if (state.name === "" || state.email === "") {
-            alert("All fields are mandatory");
+            setIsFieldsEmpty(true)
             return;
         }
-        
+
         props.addContactHandler(state);
+
         setState({ name: "", email: "" })
+        setIsFieldsEmpty(false)
     }
 
     function onChangeHandler(e){
@@ -27,6 +30,7 @@ export default function AddContact(props) {
     return (
         <div className="ui main">
             <h2>Add Contact</h2>
+            {isFieldsEmpty && <p className="ui red label">All fields are mandatory</p>}
             <form className="ui form" onSubmit={submitHandler}>
                 <div className="field">
                     <label>Name</label>
