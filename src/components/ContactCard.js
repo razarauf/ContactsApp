@@ -8,7 +8,7 @@ export default function ContactCard(props) {
             <div className="content">
                 <div className="header">{name}</div>
                 <div>{email}</div>
-                <i style={{color:"red", marginTop:"7px"}} className="ui right floated trash alternate outline icon"></i>
+                <i style={{color:"red", marginTop:"7px"}} className="ui right floated trash alternate outline icon" onClick={() => props.removeContactHandler(props.contact)}></i>
             </div>
         </div>
     )
