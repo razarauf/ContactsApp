@@ -6,7 +6,7 @@ import Header from "./Header";
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
 
-function App() {
+export default function App() {
 
   const LOCAL_STORAGE_KEY = "contacts";
 
@@ -35,5 +35,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
