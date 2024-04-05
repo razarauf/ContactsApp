@@ -27,6 +27,10 @@ export default function AddContact(props) {
         }))
     }
 
+    React.useEffect(() => {
+        setState(props.contact)
+    }, [props.contact])
+
     return (
         <div className="ui main">
             <h2>Add Contact</h2>

@@ -10,6 +10,7 @@ export default function App() {
 
   const LOCAL_STORAGE_KEY = "contacts";
 
+  const [state, setState] = useState({name: '', email: ''})
   const [contacts, setContacts] = useState([]);
 
   const addContactHandler = (contact) => {
@@ -19,6 +20,11 @@ export default function App() {
   const removeContactHandler = (contact) => {
     setContacts(prevContacts => prevContacts.filter(i => i !== contact));
   };
+
+  const editContactHandler = (contact) => {
+    setState(contact)
+    removeContactHandler(contact)
+  }
 
   useEffect(() => {
     const retrievedContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
@@ -34,8 +40,8 @@ export default function App() {
   return (
     <div className='ui container'>
       <Header/>
-      <AddContact addContactHandler={addContactHandler}/>
-      <ContactList contactsArray={contacts} removeContactHandler={removeContactHandler}/>
+      <AddContact addContactHandler={addContactHandler} contact={state}/>
+      <ContactList contactsArray={contacts} removeContactHandler={removeContactHandler} editContactHandler={editContactHandler}/>
     </div>
   );
 }
