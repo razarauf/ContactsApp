@@ -5,7 +5,7 @@ export default function ContactList(props) {
 
     const renderedContactsList = props.contactsArray.map((contact) => {
         return (
-            <ContactCard contact={contact} removeContactHandler={props.removeContactHandler} editContactHandler={props.editContactHandler}/>
+            <ContactCard key={contact.email} contact={contact} removeContactHandler={props.removeContactHandler} editContactHandler={props.editContactHandler}/>
         );
     });
 
